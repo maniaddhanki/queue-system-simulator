@@ -1,0 +1,14 @@
+.vscode/
+.coverage*
+/.history/
+
+/*/**/__pycache__/
+/.eggs/
+*.egg-info
+**/scratch/
+/coverage.xml
+
+/**/build/
+/htmlcov/
+dist/
+/docs/src/api/
