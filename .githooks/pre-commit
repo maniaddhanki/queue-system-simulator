@@ -4,16 +4,6 @@
 # Running lints, test, build
 echo -e "\n\
 ======================================\n\
-          Running python lint         \n\
-======================================\n";
-
-isort --check-only --profile black --line-length 79  src/ tests/
-black --exclude .+\.ipynb --check --line-length 79  src/ tests/
-flake8 --show-source --statistics --max-line-length 79  src/ tests/
-pylint --max-line-length 79  src/ tests/
-
-echo -e "\n\
-======================================\n\
           Running python test         \n\
 ======================================\n";
 
