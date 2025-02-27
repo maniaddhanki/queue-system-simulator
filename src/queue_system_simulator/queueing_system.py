@@ -2,9 +2,30 @@ from .queue_metrics import QueueMetrics
 
 
 class QueueingSystem:
-    def __init__(self, arrival_rate, service_rate):
+    def __init__(
+        self,
+        arrival_rate,
+        service_rate,
+        duration,
+        operator_cost,
+        machine_installation_cost,
+        machine_operation_cost,
+    ):
         self.arrival_rate = arrival_rate
         self.service_rate = service_rate
+        self.duration = duration
+        self.operator_cost = operator_cost
+        self.machine_installation_cost = machine_installation_cost
+        self.machine_operation_cost = machine_operation_cost
+
+    def calculate_cost(self):
+        total_operator_cost = self.operator_cost * self.duration
+        machine_operation_cost = self.machine_operation_cost * self.duration
+        return (
+            total_operator_cost
+            + self.machine_installation_cost
+            + machine_operation_cost
+        )
 
     def calculate_metrics(self):
         utilization_factor = self.arrival_rate / self.service_rate
